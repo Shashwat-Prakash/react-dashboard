@@ -3,10 +3,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { FiSettings } from 'react-icons/fi'
 import { TooltipComponent } from "@syncfusion/ej2-react-popups"
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components'
-import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban,
+import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, CustomerDetails, Kanban,
 Area, Bar, Pie, Financial, ColorMapping, ColorPicker, Editor,Line } from './pages'
 import './App.css' 
-import {useStateContext} from './contexts/ContextProvider'
+import {useStateContext} from './contexts/ContextProvider' 
 
 const App = () =>{
     const {activeMenu} = useStateContext();
@@ -41,8 +41,7 @@ const App = () =>{
                     }>
                         <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
                             <Navbar />
-                        </div>
-                    </div>
+                        </div>                    
 
                     {/* Roting of React Application */}
                     <div>
@@ -55,6 +54,7 @@ const App = () =>{
                             <Route path='/orders' element={<Orders />} />
                             <Route path='/employees' element={<Employees />} />
                             <Route path='/customers' element={<Customers />} />
+                            <Route path='/customer/:id' element={<CustomerDetails />} />
                             
                             {/* Apps */}
                             <Route path='/kanban' element={<Kanban />} />
@@ -73,6 +73,7 @@ const App = () =>{
                             <Route path='/stacked' element={<Stacked />} />
 
                         </Routes>
+                    </div>
                     </div>
                 </div>
             </BrowserRouter>
